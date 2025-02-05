@@ -5,10 +5,10 @@ import re
 def calc(A,B):
         ai=str(A)
         bi=str(B)
-        p = re.compile('\d+(\.\d+)?')
-        if p.match(ai) or p.match(bi):
-                a=float(ai)
-                b=float(bi)
+        p = re.compile('^[1-9][0-9]*$') #(1)文字列が数字のみで構成されている場合のみ
+        if p.match(ai) and p.match(bi): #(2)aとb両方が条件を満たしているか確認する
+                a=int(ai)
+                b=int(bi)
                 if 0<a and a<b and b<1000:
                         valid=True
                 else:
@@ -22,6 +22,7 @@ def calc(A,B):
         else:
                 return -1
         
+
                 
 def main ():
 	matchstring = ''
